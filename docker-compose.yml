@@ -1,0 +1,13 @@
+﻿version: '2.00.00'
+
+services:
+  exchange-rate-api:
+    image: exchange-rate-api
+    container_name: exchange-rate-api
+    build:
+      context: .
+      dockerfile: ExchangeRate.WebApi/Dockerfile
+    restart: always
+    ports:
+      - "5000:80"
+      - "5001:443"
