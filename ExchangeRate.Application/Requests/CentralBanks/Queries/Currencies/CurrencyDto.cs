@@ -2,7 +2,7 @@
 using ExchangeRate.Application.Common.Mappings;
 using ExchangeRate.Domain.Entities;
 
-namespace ExchangeRate.Application.Requests;
+namespace ExchangeRate.Application.Requests.CentralBanks.Queries.Currencies;
 
 public sealed record CurrencyDto : IMapWith<Currency>
 {

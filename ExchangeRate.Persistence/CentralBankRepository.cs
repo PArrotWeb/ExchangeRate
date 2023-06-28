@@ -2,17 +2,23 @@
 using ExchangeRate.Domain.Entities;
 using ExchangeRate.Persistence.CentralBanksApi;
 using ExchangeRate.Persistence.CentralBanksApi.Russia;
+using ExchangeRate.Persistence.CentralBanksApi.Thailand;
 
 namespace ExchangeRate.Persistence;
 
 public sealed class CentralBankRepository : ICentralBankRepository
 {
-	// Dictionary of central bank api for each country
+	// Dictionary of central bank api for each country. 
+	// Add all available api here
 	private readonly Dictionary<string, CentralBankApi> _centralBankApis = new()
 	{
 		{
 			Countries.Russia,
 			new RussianCentralBankApi()
+		},
+		{
+			Countries.Thailand,
+			new ThailandCentralBankApi()
 		}
 	};
 

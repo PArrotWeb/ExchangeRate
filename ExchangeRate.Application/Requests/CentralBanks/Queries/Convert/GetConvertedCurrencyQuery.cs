@@ -1,8 +1,8 @@
 ﻿using MediatR;
 
-namespace ExchangeRate.Application.Requests.Queries.ConvertRussiaCentralBank;
+namespace ExchangeRate.Application.Requests.CentralBanks.Queries.Convert;
 
-public sealed record ConvertCentralBankQuery : IRequest<ConvertDto>
+public sealed record GetConvertedCurrencyQuery : IRequest<ConvertDto>
 {
 	public string Country { get; init; } = null!;
 

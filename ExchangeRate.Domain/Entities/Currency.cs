@@ -6,9 +6,9 @@ public class Currency
 
 	public string CharCode { get; set; } = null!;
 
-	public short NumCode { get; set; }
+	public short? NumCode { get; set; }
 
-	public decimal Nominal { get; set; }
+	public decimal Nominal { get; set; } = 1;
 
 	public decimal Value { get; set; }
 }

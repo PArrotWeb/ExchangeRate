@@ -1,8 +1,10 @@
-﻿namespace ExchangeRate.WebApi.Controllers.Convert;
+﻿using ExchangeRate.Domain.Entities;
 
-public sealed record ConvertQuery
+namespace ExchangeRate.WebApi.Controllers.Convert;
+
+public sealed class ConvertQuery
 {
-	public string Country { get; init; } = null!;
+	public string Country { get; init; } = Countries.Russia;
 	public decimal Amount { get; init; }
 	public string From { get; init; } = null!;
 	public string To { get; init; } = null!;

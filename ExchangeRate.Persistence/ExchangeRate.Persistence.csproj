@@ -7,11 +7,11 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\ExchangeRate.Application\ExchangeRate.Application.csproj"/>
+        <ProjectReference Include="..\ExchangeRate.Application\ExchangeRate.Application.csproj" />
     </ItemGroup>
 
     <ItemGroup>
-        <Folder Include="CentralBanksApi\Thailand\"/>
+      <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     </ItemGroup>
 
 </Project>

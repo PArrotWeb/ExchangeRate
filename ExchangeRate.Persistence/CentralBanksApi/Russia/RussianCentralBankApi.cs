@@ -1,5 +1,5 @@
 ﻿using ExchangeRate.Domain.Entities;
-using ExchangeRate.Persistence.CentralBanksApi.Russia.Deserializing;
+using ExchangeRate.Persistence.CentralBanksApi.Deserializers;
 
 namespace ExchangeRate.Persistence.CentralBanksApi.Russia;
 
@@ -27,7 +27,7 @@ public sealed class RussianCentralBankApi : CentralBankApi
 		return _countryCurrency;
 	}
 
-	protected override RussianCentralBankDeserializer GetCentralBankDeserializer()
+	protected override CentralBankDeserializer GetCentralBankDeserializer()
 	{
 		return _deserializer;
 	}

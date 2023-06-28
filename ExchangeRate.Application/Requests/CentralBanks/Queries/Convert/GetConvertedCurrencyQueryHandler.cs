@@ -2,19 +2,19 @@
 using ExchangeRate.Application.Interfaces;
 using MediatR;
 
-namespace ExchangeRate.Application.Requests.Queries.ConvertRussiaCentralBank;
+namespace ExchangeRate.Application.Requests.CentralBanks.Queries.Convert;
 
-public sealed class ConvertCentralBankQueryHandler : IRequestHandler<ConvertCentralBankQuery, ConvertDto>
+public sealed class GetConvertedCurrencyQueryHandler : IRequestHandler<GetConvertedCurrencyQuery, ConvertDto>
 {
 	private readonly ICentralBankRepository _centralBankRepository;
 
-	public ConvertCentralBankQueryHandler(ICentralBankRepository centralBankRepository)
+	public GetConvertedCurrencyQueryHandler(ICentralBankRepository centralBankRepository)
 	{
 		_centralBankRepository = centralBankRepository;
 	}
 
-	#region IRequestHandler<ConvertCentralBankQuery,ConvertDto> Members
-	public async Task<ConvertDto> Handle(ConvertCentralBankQuery request, CancellationToken cancellationToken)
+	#region IRequestHandler<GetConvertedCurrencyQuery,ConvertDto> Members
+	public async Task<ConvertDto> Handle(GetConvertedCurrencyQuery request, CancellationToken cancellationToken)
 	{
 		var repository = await _centralBankRepository.GetCentralBankAsync(request.Country, cancellationToken);
 

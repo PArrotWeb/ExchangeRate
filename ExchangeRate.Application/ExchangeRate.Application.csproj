@@ -17,8 +17,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <Folder Include="Requests\Russia\Queries\"/>
-        <Folder Include="Requests\Thailand\Queries\GetThailandCurrencies\"/>
+        <Folder Include="Requests\CentralBanks\"/>
     </ItemGroup>
 
 </Project>

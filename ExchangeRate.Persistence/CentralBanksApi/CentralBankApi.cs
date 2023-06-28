@@ -7,9 +7,8 @@ namespace ExchangeRate.Persistence.CentralBanksApi;
 public abstract class CentralBankApi
 {
 
-	private static readonly TimeSpan CacheTime = TimeSpan.FromHours(1);
-
-
+	private static readonly TimeSpan CacheTime = TimeSpan.FromHours(3);
+	
 	private readonly object _lockCentralBankCache = new();
 
 	private CentralBank? _centralBankCache;
@@ -25,10 +24,7 @@ public abstract class CentralBankApi
 		}
 		set
 		{
-			lock (_lockCentralBankCache)
-			{
-				_centralBankCache = value;
-			}
+			lock (_lockCentralBankCache) _centralBankCache = value;
 		}
 	}
 
@@ -36,7 +32,7 @@ public abstract class CentralBankApi
 
 	protected abstract Currency GetCountryCurrency();
 
-	protected abstract ICentralBankDeserializer GetCentralBankDeserializer();
+	protected abstract CentralBankDeserializer GetCentralBankDeserializer();
 
 	protected abstract string GetCountryName();
 
@@ -64,13 +60,29 @@ public abstract class CentralBankApi
 		}
 
 		// get data from API if cache is expired or empty
-		Console.WriteLine($"Get data from cache... ({GetCountryName()})");
+		Console.WriteLine($"Get data from api... ({GetCountryName()})");
 
 		// get response from API
 		var responseContent = await GetDataFromUrlAsync(GetCentralBankApiUrl(), cancellationToken);
-
+		
 		// deserialize to domain model
-		var currencies = await GetCentralBankDeserializer().DeserializeAsync(responseContent, cancellationToken);
+		List<Currency> currencies;
+		try
+		{
+			currencies = await GetCentralBankDeserializer().DeserializeAsync(responseContent, cancellationToken);
+		}
+		catch (Exception e)
+		{
+			Console.WriteLine(e);
+			
+			// return cache if api not available
+			if (CentralBankCache == null)
+			{
+				throw;
+			}
+
+			return CentralBankCache;
+		}
 
 		// add country currency to currencies for convenience
 		currencies.Add(GetCountryCurrency());
@@ -93,16 +105,26 @@ public abstract class CentralBankApi
 	/// <param name="url">Central bank api url</param>
 	/// <param name="cancellationToken"></param>
 	/// <returns>String of response</returns>
-	private static async Task<string> GetDataFromUrlAsync(string url, CancellationToken cancellationToken)
+	private async Task<string> GetDataFromUrlAsync(string url, CancellationToken 
+	cancellationToken)
 	{
-		var httpClient = new HttpClient();
-		httpClient.DefaultRequestHeaders.Clear();
-
+		var httpClient = CreateHttpClient();
 		var response = await httpClient.GetAsync(url, cancellationToken);
 
 		Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
 		var responseContent = await response.Content.ReadAsStringAsync(cancellationToken);
 
 		return responseContent;
+	}
+	
+	/// <summary>
+	/// Create HttpClient and set headers or other
+	/// </summary>
+	/// <returns>new HttpClient</returns>
+	protected virtual HttpClient CreateHttpClient()
+	{
+		var httpClient = new HttpClient();
+		httpClient.DefaultRequestHeaders.Clear();
+		return httpClient;
 	}
 }
