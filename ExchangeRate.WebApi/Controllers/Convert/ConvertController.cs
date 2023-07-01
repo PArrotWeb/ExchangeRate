@@ -14,7 +14,6 @@ public sealed class ConvertController : BaseController
 
 	[HttpGet]
 	[ProducesResponseType(StatusCodes.Status200OK)]
-	[ProducesResponseType(StatusCodes.Status400BadRequest)]
 	public async Task<ActionResult<ConvertDto>> Convert([FromQuery] ConvertQuery convertQuery, 
 		CancellationToken cancellationToken)
 	{

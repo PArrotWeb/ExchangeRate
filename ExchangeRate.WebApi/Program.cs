@@ -3,6 +3,7 @@ using ExchangeRate.Application;
 using ExchangeRate.Application.Common.Mappings;
 using ExchangeRate.Application.Interfaces;
 using ExchangeRate.Persistence;
+using ExchangeRate.WebApi.Middleware.CustomExceptionMiddleware;
 
 var builder = WebApplication.CreateBuilder(args);
 ConfigureServices(builder.Services);
@@ -42,12 +43,21 @@ void ConfigureServices(IServiceCollection services)
 
 void ConfigureApp()
 {
-	app.UseSwagger();
-	app.UseSwaggerUI();
+	if (app.Environment.IsDevelopment())
+	{
+		app.UseDeveloperExceptionPage();
+		app.UseSwagger();
+		app.UseSwaggerUI();
+	}
 
+	app.UseCustomExceptionHandler();
+	
+	app.UseRouting();
+	
 	app.UseHttpsRedirection();
+	
+	app.UseCors("AllowAll");
 
 	app.MapControllers();
 
-	app.UseCors("AllowAll");
 }

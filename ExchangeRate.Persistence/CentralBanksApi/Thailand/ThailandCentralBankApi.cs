@@ -1,5 +1,6 @@
 ﻿using ExchangeRate.Domain.Entities;
 using ExchangeRate.Persistence.CentralBanksApi.Deserializers;
+using ExchangeRate.Persistence.CentralBanksApi.Thailand.Deserializing;
 
 namespace ExchangeRate.Persistence.CentralBanksApi.Thailand;
 
@@ -49,7 +50,7 @@ public sealed class ThailandCentralBankApi : CentralBankApi
 	{
 		var httpClient = new HttpClient();
 		httpClient.DefaultRequestHeaders.Clear();
-		httpClient.DefaultRequestHeaders.Add("X-IBM-Client-Id", "f8d55e8b-4306-4e39-be0c-17b29fe462c5");
+		httpClient.DefaultRequestHeaders.Add("X-IBM-Client-Id", XIbmClientId);
 
 		return httpClient;
 	}

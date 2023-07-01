@@ -7,17 +7,20 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\ExchangeRate.Domain\ExchangeRate.Domain.csproj"/>
+        <ProjectReference Include="..\ExchangeRate.Domain\ExchangeRate.Domain.csproj" />
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="AutoMapper" Version="12.0.1"/>
-        <PackageReference Include="MediatR" Version="12.0.1"/>
-        <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0-preview.5.23280.8"/>
+        <PackageReference Include="AutoMapper" Version="12.0.1" />
+        <PackageReference Include="FluentValidation" Version="11.5.2" />
+        <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.5.2" />
+        <PackageReference Include="MediatR" Version="12.0.1" />
+        <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0-preview.5.23280.8" />
     </ItemGroup>
 
     <ItemGroup>
-        <Folder Include="Requests\CentralBanks\"/>
+        <Folder Include="Common\Exceptions\" />
+        <Folder Include="Requests\CentralBanks\" />
     </ItemGroup>
 
 </Project>

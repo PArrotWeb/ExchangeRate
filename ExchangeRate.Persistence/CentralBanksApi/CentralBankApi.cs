@@ -7,12 +7,15 @@ namespace ExchangeRate.Persistence.CentralBanksApi;
 public abstract class CentralBankApi
 {
 
+	// period of cache time
 	private static readonly TimeSpan CacheTime = TimeSpan.FromHours(3);
 	
+	// lock object for thread safety
 	private readonly object _lockCentralBankCache = new();
 
+	// cache for central bank data with thread safety logic
 	private CentralBank? _centralBankCache;
-
+	
 	private CentralBank? CentralBankCache
 	{
 		get
@@ -28,8 +31,16 @@ public abstract class CentralBankApi
 		}
 	}
 
+	/// <summary>
+	/// Get central bank api url
+	/// </summary>
+	/// <returns>Final URL</returns>
 	protected abstract string GetCentralBankApiUrl();
 
+	/// <summary>
+	/// Currency for country where central bank is located
+	/// </summary>
+	/// <returns>Currency</returns>
 	protected abstract Currency GetCountryCurrency();
 
 	protected abstract CentralBankDeserializer GetCentralBankDeserializer();
@@ -78,7 +89,7 @@ public abstract class CentralBankApi
 			// return cache if api not available
 			if (CentralBankCache == null)
 			{
-				throw;
+				throw new Exception("Central bank API is not available");
 			}
 
 			return CentralBankCache;

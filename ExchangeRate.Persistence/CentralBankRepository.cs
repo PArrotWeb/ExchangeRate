@@ -3,6 +3,7 @@ using ExchangeRate.Domain.Entities;
 using ExchangeRate.Persistence.CentralBanksApi;
 using ExchangeRate.Persistence.CentralBanksApi.Russia;
 using ExchangeRate.Persistence.CentralBanksApi.Thailand;
+using ExchangeRate.Persistence.Common.Exceptions;
 
 namespace ExchangeRate.Persistence;
 
@@ -47,7 +48,7 @@ public sealed class CentralBankRepository : ICentralBankRepository
 		// check if country is not supported
 		if (_centralBankApis.ContainsKey(country) == false)
 		{
-			throw new Exception($"Central bank API for {country} is not found");
+			throw new NotFoundException($"Central bank API for {country} is not found");
 		}
 
 		return await _centralBankApis[country].GetCentralBankAsync(cancellationToken);
