@@ -10,7 +10,12 @@ public sealed class AvailableCountriesController : BaseController
 	public AvailableCountriesController(ISender mediator) : base(mediator)
 	{
 	}
-	
+
+	/// <summary>
+	/// Get list of available countries
+	/// </summary>
+	/// <param name="cancellationToken"></param>
+	/// <returns>List of available countries</returns>
 	[HttpGet]
 	[ProducesResponseType(StatusCodes.Status200OK)]
 	public async Task<ActionResult<CountriesVm>> GetAvailableCountries(CancellationToken cancellationToken)

@@ -8,7 +8,8 @@ public sealed class ThailandCentralBankDeserializer : JsonCentralBankDeserialize
 {
 	private readonly NumberFormatInfo _format = new() {NumberDecimalSeparator = "."};
 
-	protected override async Task<List<Currency>> MapToCurrenciesAsync(Root parsedData, CancellationToken cancellationToken)
+	protected override async Task<List<Currency>> MapToCurrenciesAsync(Root parsedData,
+		CancellationToken cancellationToken)
 	{
 		var currencies = new List<Currency>();
 

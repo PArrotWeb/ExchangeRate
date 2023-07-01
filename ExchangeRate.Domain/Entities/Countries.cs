@@ -9,7 +9,7 @@ public static class Countries
 	/// Russia country name in upper case.
 	/// </summary>
 	public const string Russia = "RUSSIA";
-	
+
 	/// <summary>
 	/// Thailand country name in upper case.
 	/// </summary>

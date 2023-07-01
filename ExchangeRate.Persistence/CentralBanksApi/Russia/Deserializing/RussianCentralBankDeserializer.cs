@@ -8,7 +8,8 @@ public sealed class RussianCentralBankDeserializer : XmlCentralBankDeserializer<
 {
 	private readonly NumberFormatInfo _format = new() {NumberDecimalSeparator = ","};
 
-	protected override async Task<List<Currency>> MapToCurrenciesAsync(ValCurs parsedData, CancellationToken cancellationToken)
+	protected override async Task<List<Currency>> MapToCurrenciesAsync(ValCurs parsedData,
+		CancellationToken cancellationToken)
 	{
 		var currencies = new List<Currency>();
 
@@ -28,7 +29,7 @@ public sealed class RussianCentralBankDeserializer : XmlCentralBankDeserializer<
 				currencies.Add(currency);
 			}
 		}, cancellationToken);
-		
+
 		return currencies;
 	}
 }

@@ -9,13 +9,13 @@ public abstract class CentralBankApi
 
 	// period of cache time
 	private static readonly TimeSpan CacheTime = TimeSpan.FromHours(3);
-	
+
 	// lock object for thread safety
 	private readonly object _lockCentralBankCache = new();
 
 	// cache for central bank data with thread safety logic
 	private CentralBank? _centralBankCache;
-	
+
 	private CentralBank? CentralBankCache
 	{
 		get
@@ -27,7 +27,10 @@ public abstract class CentralBankApi
 		}
 		set
 		{
-			lock (_lockCentralBankCache) _centralBankCache = value;
+			lock (_lockCentralBankCache)
+			{
+				_centralBankCache = value;
+			}
 		}
 	}
 
@@ -75,7 +78,7 @@ public abstract class CentralBankApi
 
 		// get response from API
 		var responseContent = await GetDataFromUrlAsync(GetCentralBankApiUrl(), cancellationToken);
-		
+
 		// deserialize to domain model
 		List<Currency> currencies;
 		try
@@ -85,7 +88,7 @@ public abstract class CentralBankApi
 		catch (Exception e)
 		{
 			Console.WriteLine(e);
-			
+
 			// return cache if api not available
 			if (CentralBankCache == null)
 			{
@@ -116,8 +119,8 @@ public abstract class CentralBankApi
 	/// <param name="url">Central bank api url</param>
 	/// <param name="cancellationToken"></param>
 	/// <returns>String of response</returns>
-	private async Task<string> GetDataFromUrlAsync(string url, CancellationToken 
-	cancellationToken)
+	private async Task<string> GetDataFromUrlAsync(string url, CancellationToken
+		cancellationToken)
 	{
 		var httpClient = CreateHttpClient();
 		var response = await httpClient.GetAsync(url, cancellationToken);
@@ -127,7 +130,7 @@ public abstract class CentralBankApi
 
 		return responseContent;
 	}
-	
+
 	/// <summary>
 	/// Create HttpClient and set headers or other
 	/// </summary>

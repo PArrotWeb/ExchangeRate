@@ -1,4 +1,5 @@
 ﻿using System.Xml.Serialization;
+
 #pragma warning disable CS8618
 
 namespace ExchangeRate.Persistence.CentralBanksApi.Russia.Deserializing;
@@ -42,4 +43,3 @@ public class Valute
 	[XmlAttribute(AttributeName = "ID")]
 	public string Id { get; set; }
 }
-

@@ -5,15 +5,18 @@ using FluentValidation;
 
 namespace ExchangeRate.WebApi.Middleware.CustomExceptionMiddleware;
 
+/// <summary>
+/// Middleware for handling exceptions
+/// </summary>
 public class CustomExceptionHandlerMiddleware
 {
 	private readonly RequestDelegate _next;
-	
+
 	public CustomExceptionHandlerMiddleware(RequestDelegate next)
 	{
 		_next = next;
 	}
-	
+
 	public async Task InvokeAsync(HttpContext context)
 	{
 		try
@@ -25,7 +28,7 @@ public class CustomExceptionHandlerMiddleware
 			await HandleExceptionAsync(context, e);
 		}
 	}
-	
+
 	private static Task HandleExceptionAsync(HttpContext context, Exception exception)
 	{
 		var code = HttpStatusCode.InternalServerError;
@@ -41,14 +44,14 @@ public class CustomExceptionHandlerMiddleware
 				code = HttpStatusCode.NotFound;
 				break;
 		}
-		
+
 		context.Response.ContentType = "application/json";
 		context.Response.StatusCode = (int)code;
 		if (result == string.Empty)
 		{
-			result = JsonSerializer.Serialize(new { error = exception.Message });
+			result = JsonSerializer.Serialize(new {error = exception.Message});
 		}
-		
+
 		return context.Response.WriteAsync(result);
 	}
 }

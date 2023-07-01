@@ -11,19 +11,27 @@ public abstract class JsonCentralBankDeserializer<TParsingModel> : CentralBankDe
 	{
 		// deserialize async json by parsing model. Stream from data
 		using var stream = new MemoryStream(Encoding.UTF8.GetBytes(data));
-		var parsedData = await JsonSerializer.DeserializeAsync<TParsingModel>(stream, cancellationToken: cancellationToken);
+		var parsedData =
+			await JsonSerializer.DeserializeAsync<TParsingModel>(stream, cancellationToken: cancellationToken);
 
 		// check if parsed data is null
 		if (parsedData is null)
 		{
 			throw new InvalidOperationException("Json parsing data is null");
 		}
-		
+
 		// map parsed data to currencies
 		var currencies = await MapToCurrenciesAsync(parsedData, cancellationToken);
-		
+
 		return currencies;
 	}
-	
-	protected abstract Task<List<Currency>> MapToCurrenciesAsync(TParsingModel parsedData, CancellationToken cancellationToken);
+
+	/// <summary>
+	/// Map parsed data to currencies
+	/// </summary>
+	/// <param name="parsedData">Data deserialized to TParsingModel</param>
+	/// <param name="cancellationToken"></param>
+	/// <returns>List of currencies</returns>
+	protected abstract Task<List<Currency>> MapToCurrenciesAsync(TParsingModel parsedData,
+		CancellationToken cancellationToken);
 }

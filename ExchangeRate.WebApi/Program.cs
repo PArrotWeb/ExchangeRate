@@ -4,6 +4,7 @@ using ExchangeRate.Application.Common.Mappings;
 using ExchangeRate.Application.Interfaces;
 using ExchangeRate.Persistence;
 using ExchangeRate.WebApi.Middleware.CustomExceptionMiddleware;
+using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 ConfigureServices(builder.Services);
@@ -18,7 +19,15 @@ void ConfigureServices(IServiceCollection services)
 	services.AddPersistence();
 
 	services.AddEndpointsApiExplorer();
-	services.AddSwaggerGen();
+
+	if (builder.Environment.IsDevelopment())
+	{
+		services.AddSwaggerGen(c =>
+		{
+			c.SwaggerDoc("v1", new OpenApiInfo
+				{Title = "ExchangeRate.WebApi", Version = "v1"});
+		});
+	}
 
 	services.AddControllers();
 
@@ -51,11 +60,11 @@ void ConfigureApp()
 	}
 
 	app.UseCustomExceptionHandler();
-	
+
 	app.UseRouting();
-	
+
 	app.UseHttpsRedirection();
-	
+
 	app.UseCors("AllowAll");
 
 	app.MapControllers();

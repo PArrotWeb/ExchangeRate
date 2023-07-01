@@ -15,7 +15,7 @@ public class GetAvailableCurrenciesValidator : AbstractValidator<GetAvailableCur
 		RuleFor(q => q.Country)
 			.Length(2, 45)
 			.WithMessage("Country must be between 2 and 45 characters.");
-		
+
 		// check if country includes only eng upper case letters
 		RuleFor(q => q.Country)
 			.Matches("^[A-Z]+$")

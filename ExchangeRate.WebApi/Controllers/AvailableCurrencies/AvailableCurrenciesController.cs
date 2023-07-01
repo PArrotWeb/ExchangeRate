@@ -1,4 +1,5 @@
-﻿using ExchangeRate.Application.Requests.CentralBanks.Queries.AvailableCurrencies;
+﻿using System.ComponentModel.DataAnnotations;
+using ExchangeRate.Application.Requests.CentralBanks.Queries.AvailableCurrencies;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -11,9 +12,17 @@ public sealed class AvailableCurrenciesController : BaseController
 	{
 	}
 
+	/// <summary>
+	/// Get list of available currencies for specific country central bank
+	/// </summary>
+	/// <param name="country">One of available country</param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
 	[HttpGet]
 	[ProducesResponseType(StatusCodes.Status200OK)]
-	public async Task<ActionResult<CurrencyNamesVm>> GetAvailableCurrencies([FromQuery] string country,
+	[ProducesResponseType(StatusCodes.Status400BadRequest)]
+	[ProducesResponseType(StatusCodes.Status404NotFound)]
+	public async Task<ActionResult<CurrencyNamesVm>> GetAvailableCurrencies([FromQuery] [Required] string country,
 		CancellationToken cancellationToken)
 	{
 		var query = new GetAvailableCurrenciesQuery

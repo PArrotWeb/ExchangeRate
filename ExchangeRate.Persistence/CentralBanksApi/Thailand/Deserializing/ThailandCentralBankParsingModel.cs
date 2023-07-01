@@ -1,8 +1,8 @@
 ﻿using System.Text.Json.Serialization;
+
 #pragma warning disable CS8618
 
 namespace ExchangeRate.Persistence.CentralBanksApi.Thailand.Deserializing;
-
 
 public class Root
 {
@@ -29,7 +29,7 @@ public class Data
 	[JsonIgnore]
 	[JsonPropertyName("data_header")]
 	public DataHeader DataHeader { get; set; }
-	
+
 	[JsonPropertyName("data_detail")]
 	public List<DataDetail> DataDetail { get; set; } = new();
 }
@@ -49,10 +49,10 @@ public class DataHeader
 	public string ReportUoqNameTh { get; set; }
 
 	[JsonPropertyName("report_source_of_data")]
-	public List<ReportSourceOfDatum> ReportSourceOfData { get; set;} = new List<ReportSourceOfDatum>();
+	public List<ReportSourceOfDatum> ReportSourceOfData { get; set; } = new();
 
 	[JsonPropertyName("report_remark")]
-	public List<ReportRemark> ReportRemark { get; set;} = new List<ReportRemark>();
+	public List<ReportRemark> ReportRemark { get; set; } = new();
 
 	[JsonPropertyName("last_updated")]
 	public string LastUpdated { get; set; }
