@@ -4,6 +4,7 @@
 
 ### Стек технологий:
 - ASP.NET WebApi
+- Docker
 - FluentValidation
 - MediatoR
 - AutoMapper
