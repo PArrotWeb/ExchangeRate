@@ -1,0 +1,190 @@
+@import 'style.scss';
+
+.converter {
+}
+
+.converter__container {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  justify-content: center;
+  height: calc(100vh - 80px);
+  padding-bottom: 80px;
+  gap: 84px;
+}
+
+.converter__block {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.converter__select-block {
+  display: flex;
+  justify-content: space-between;
+}
+
+.converter__select {
+  height: 50px;
+  position: relative;
+  font-size: 18px;
+}
+
+.converter__select-currency {
+}
+
+.converter__select-central-bank {
+}
+
+
+.converter__select-btn {
+  height: 100%;
+  display: flex;
+  flex-shrink: 0;
+}
+
+.converter__select-currency .converter__select-btn {
+}
+
+.converter__select-central-bank .converter__select-btn {
+
+}
+
+.converter__select-label {
+  height: 100%;
+  text-align: center;
+
+  border-radius: 4px 0 0 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-family: $InterMedium;
+  line-height: normal;
+  text-transform: uppercase;
+}
+
+.converter__select-currency .converter__select-label {
+  color: $white;
+  background-color: $green;
+  width: 112px;
+}
+
+.converter__select-central-bank .converter__select-label {
+  color: $dark_grey;
+  border: 1px solid $grey;
+  width: 160px;
+}
+
+.converter__select-arrow {
+  width: 56px;
+  height: 100%;
+  border-top: 1px solid $grey;
+  border-right: 1px solid $grey;
+  border-bottom: 1px solid $grey;
+  border-radius: 0 4px 4px 0;
+  background: url(../img/Arrow.svg) no-repeat 50%;
+  background-size: 15px 10px;
+}
+
+.converter__select-list {
+  display: none;
+  position: absolute;
+  top: 52px;
+  left: 0;
+  right: 0;
+  background-color: $white;
+  border: 1px solid $grey;
+  line-height: 1;
+  color: $dark_grey;
+  border-radius: 4px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  z-index: 2;
+  max-height: 200px;
+  overflow-y: scroll;
+}
+
+.converter__select-list.open {
+  display: block;
+}
+
+.converter__select-item {
+  padding: 6px 20px;
+  cursor: pointer;
+  background-color: $white;
+
+  font-family: $InterMedium;
+  line-height: normal;
+  text-transform: uppercase;
+
+  transition: all 0.2s;
+}
+
+.converter__select-item:hover {
+  background-color: $grey;
+  color: $white;
+}
+.converter__select-item:last-child {
+  padding-bottom: 10px;
+}
+.converter__select-item:first-child {
+  padding-top: 10px;
+}
+
+.converter__input-block {
+  width: 500px;
+  height: 160px;
+  border: 1px solid $grey;
+  padding: 30px;
+}
+
+.converter__input {
+  max-width: 100%;
+  max-height: 100%;
+  color: $dark_grey;
+  font-size: 36px;
+  font-family: $InterBold;
+  text-transform: uppercase;
+}
+
+.converter__swap {
+}
+
+.converter__swap-btn {
+  width: 38px;
+  height: 45px;
+  background: url(../img/Swap.svg) no-repeat 50%;
+}
+
+.converter__info {
+  height: 50px;
+  color: $grey;
+  font-size: 16px;
+  font-family: $InterRegular;
+  text-transform: capitalize;
+}
+
+@media (max-width: 1255px) {
+  .converter__container {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .converter__info {
+    height: 0;
+  }
+}
+
+// max-height 780 and max-width 1255
+@media (max-height: 800px) and (max-width: 1255px) {
+  .header__container {
+    display: none;
+  }
+
+  .converter__container {
+    height: 800px;
+    overflow-y: auto;
+  }
+}
