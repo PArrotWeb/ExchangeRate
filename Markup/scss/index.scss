@@ -126,9 +126,11 @@
   background-color: $grey;
   color: $white;
 }
+
 .converter__select-item:last-child {
   padding-bottom: 10px;
 }
+
 .converter__select-item:first-child {
   padding-top: 10px;
 }
@@ -168,23 +170,56 @@
 
 @media (max-width: 1255px) {
   .converter__container {
-    flex-direction: column;
-    gap: 40px;
+	flex-direction: column;
+	gap: 40px;
   }
 
   .converter__info {
-    height: 0;
+	height: 0;
   }
 }
 
 // max-height 780 and max-width 1255
 @media (max-height: 800px) and (max-width: 1255px) {
   .header__container {
-    display: none;
+	display: none;
   }
 
   .converter__container {
-    height: 800px;
-    overflow-y: auto;
+	height: 800px;
+	overflow-y: auto;
+  }
+}
+
+@media(max-width: 590px) {
+  .converter__input-block {
+	width: 100%;
+  }
+
+  .converter__block {
+	max-width: 100%;
+	width: 100%;
+  }
+}
+
+@media(max-width: 470px) {
+  .converter__input-block {
+	width: 100%;
+  }
+  .converter__select {
+	width: 100%;
+  }
+  .converter__select-block {
+	flex-wrap: wrap;
+	gap: 20px;
+  }
+  .container {
+	padding: 5px 25px;
+  }
+  .converter__select-central-bank .converter__select-label {
+	width: 100%;
+  }
+  .converter__select-currency .converter__select-label {
+	width: 100%;
   }
 }

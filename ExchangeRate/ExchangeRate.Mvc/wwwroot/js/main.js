@@ -1,6 +1,6 @@
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function() {
     document.querySelectorAll('.converter__select-arrow').forEach(function (selectButton) {
-        selectButton.addEventListener('click', function (e) {
+        selectButton.addEventListener('click', function(e){
             const selectWrapper = selectButton.parentElement.parentElement;
             const label = selectWrapper.querySelector('.converter__select-label');
             const openList = selectWrapper.querySelector('.converter__select-list');
@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 return;
             }
 
-            document.addEventListener('click', function (e) {
+            document.addEventListener('click', function(e){
                 if (e.target !== selectButton && e.target !== openList) {
                     openList.classList.remove('open');
                 }
@@ -19,8 +19,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
             openList.classList.toggle('open');
 
-            openItems.forEach(function (item) {
-                item.addEventListener('click', function () {
+            openItems.forEach(function(item) {
+                item.addEventListener('click',function(){
                     label.innerText = this.innerText;
                     openList.classList.remove('open');
                 })
@@ -28,19 +28,4 @@ document.addEventListener("DOMContentLoaded", function () {
         })
 
     })
-
-    validateAmountInputs();
 });
-
-function validateAmountInputs() {
-    let inputs = document.querySelectorAll(".converter__input");
-    inputs.forEach(item => {
-        item.addEventListener("input", function (event) {
-            const value = event.target.value;
-            const isValid = /^((0|[1-9][0-9]{0,9})(\.[0-9]{0,4})?)$/g.test(value);
-            if (!isValid) {
-                event.target.value = value.slice(0, -1);
-            }
-        })
-    })
-}

@@ -1,1 +1,1 @@
-@import "../css/reset.min.css";*{font-family:GraphikCy,"Helvetica CY",Arial,sans-serif;line-height:1}::selection{color:#fff;background-color:#222}body{overflow-x:hidden}.container{max-width:1230px;margin:0 auto;padding:0 15px}
+@import "../css/reset.min.css";*{font-family:GraphikCy,"Helvetica CY",Arial,sans-serif;line-height:1}::selection{color:#fff;background-color:#222}body{overflow-x:hidden}.container{max-width:1230px;margin:0 auto;padding:0 15px}input[type=number]{-webkit-appearance:none;outline:0}

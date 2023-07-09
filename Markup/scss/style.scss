@@ -59,6 +59,11 @@ $white: #fff;
   background-color: $grey;
 }
 
+input[type="number"] {
+  -webkit-appearance: none;
+  outline: none;
+}
+
 body {
   overflow-x: hidden;
 }

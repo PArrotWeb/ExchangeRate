@@ -47,11 +47,6 @@
   background-color: #d9d9d9;
 }
 
-input[type=number] {
-  -webkit-appearance: none;
-  outline: none;
-}
-
 body {
   overflow-x: hidden;
 }
@@ -257,36 +252,6 @@ button:focus-visible, a:focus-visible {
   .converter__container {
     height: 800px;
     overflow-y: auto;
-  }
-}
-@media (max-width: 590px) {
-  .converter__input-block {
-    width: 100%;
-  }
-  .converter__block {
-    max-width: 100%;
-    width: 100%;
-  }
-}
-@media (max-width: 470px) {
-  .converter__input-block {
-    width: 100%;
-  }
-  .converter__select {
-    width: 100%;
-  }
-  .converter__select-block {
-    flex-wrap: wrap;
-    gap: 20px;
-  }
-  .container {
-    padding: 5px 25px;
-  }
-  .converter__select-central-bank .converter__select-label {
-    width: 100%;
-  }
-  .converter__select-currency .converter__select-label {
-    width: 100%;
   }
 }
 

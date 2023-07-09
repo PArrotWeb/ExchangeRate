@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExchangeRate.Application", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExchangeRate.Persistence", "ExchangeRate.Persistence\ExchangeRate.Persistence.csproj", "{585A1617-77B7-4580-8D85-1EDBAF0EF4DE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExchangeRate.Mvc", "ExchangeRate.Mvc\ExchangeRate.Mvc.csproj", "{3A3F9B49-4E20-4BD3-B66A-64C07C9161BB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,6 +39,10 @@ Global
 		{585A1617-77B7-4580-8D85-1EDBAF0EF4DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{585A1617-77B7-4580-8D85-1EDBAF0EF4DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{585A1617-77B7-4580-8D85-1EDBAF0EF4DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A3F9B49-4E20-4BD3-B66A-64C07C9161BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A3F9B49-4E20-4BD3-B66A-64C07C9161BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A3F9B49-4E20-4BD3-B66A-64C07C9161BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A3F9B49-4E20-4BD3-B66A-64C07C9161BB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{CDA2D551-EE8B-4C6A-A982-834321FD3581} = {7FB0E3E4-66BD-4F9F-8D96-9BD5A56B1BFE}

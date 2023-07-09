@@ -1,22 +1,28 @@
 @import "../css/reset.min.css";
+
 * {
-  font-family: GraphikCy, "Helvetica CY", Arial, sans-serif;
-  line-height: 1;
+	font-family: GraphikCy, "Helvetica CY", Arial, sans-serif;
+	line-height: 1;
 }
 
 ::selection {
-  color: #fff;
-  background-color: #222;
+	color: #ffffff;
+	background-color: #222222;
 }
 
 body {
-  overflow-x: hidden;
+	overflow-x: hidden;
 }
 
 .container {
-  max-width: 1230px;
-  margin: 0 auto;
-  padding: 0 15px;
+	max-width: 1230px;
+	margin: 0 auto;
+	padding: 0 15px;
+}
+
+input[type="number"] {
+	-webkit-appearance: none;
+	outline: none;
 }
 
 /*# sourceMappingURL=style.css.map */
