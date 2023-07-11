@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta
+			charset="UTF-8"
+			content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+			name="viewport"
+	/>
+	<title>Exchange Rate</title>
+	<link href="css/index.min.css" rel="stylesheet">
+</head>
+<body>
+<header class="header">
+	<div class="container">
+		<div class="header__container">
+			<div class="logo">
+				Exchange Rate
+			</div>
+		</div>
+	</div>
+</header>
+<main style="display: none;">
+	<section class="converter">
+		<div class="container">
+			<div class="converter__container">
+				<div class="converter__block" id="from">
+					<div class="converter__select-block">
+						<div class="converter__select converter__select-currency">
+							<div class="converter__select-btn">
+								<div class="converter__select-label"></div>
+								<button class="converter__select-arrow"></button>
+							</div>
+							<ul class="converter__select-list">
+							</ul>
+						</div>
+						<div class="converter__select converter__select-central-bank">
+							<div class="converter__select-btn">
+								<div class="converter__select-label"></div>
+								<button class="converter__select-arrow"></button>
+							</div>
+							<ul class="converter__select-list">
+							</ul>
+						</div>
+					</div>
+					<div class="converter__input-block">
+						<input class="converter__input" placeholder="0" type="text">
+					</div>
+					<div class="converter__info">
+						From
+					</div>
+				</div>
+				<div class="converter__swap">
+					<button class="converter__swap-btn" onclick="swap()"></button>
+				</div>
+				<div class="converter__block" id="to">
+					<div class="converter__select-block">
+						<div class="converter__select converter__select-currency">
+							<div class="converter__select-btn">
+								<div class="converter__select-label"></div>
+								<button class="converter__select-arrow"></button>
+							</div>
+							<ul class="converter__select-list">
+							</ul>
+						</div>
+					</div>
+					<div class="converter__input-block">
+						<input class="converter__input" placeholder="0" readonly type="text">
+					</div>
+					<div class="converter__info">
+						To
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</main>
+
+<div class="loader">
+	<div class="loader__spin"></div>
+</div>
+
+<script src="/js/main.js"></script>
+</body>
+</html>
