@@ -12,6 +12,7 @@
 - MediatoR
 - AutoMapper
 - Swagger
+- Postman (Нагрузочное тестирование)
 
 ### Особенности:
 - Clean Architecture, CQRS
