@@ -1,4 +1,4 @@
-const serverUrl = 'http://localhost:5055';
+const serverUrl = 'http://217.71.129.139:5513';
 
 let fromBlock;
 let toBlock;
