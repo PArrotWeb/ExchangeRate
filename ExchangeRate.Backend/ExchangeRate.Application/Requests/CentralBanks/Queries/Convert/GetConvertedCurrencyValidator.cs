@@ -2,6 +2,9 @@
 
 namespace ExchangeRate.Application.Requests.CentralBanks.Queries.Convert;
 
+/// <summary>
+/// Validator for GetConvertedCurrencyQuery
+/// </summary>
 public class GetConvertedCurrencyValidator : AbstractValidator<GetConvertedCurrencyQuery>
 {
 	public GetConvertedCurrencyValidator()

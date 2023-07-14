@@ -4,6 +4,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ExchangeRate.WebApi.Controllers.Convert;
 
+/// <summary>
+/// Controller for currency convert
+/// </summary>
 public sealed class ConvertController : BaseController
 {
 

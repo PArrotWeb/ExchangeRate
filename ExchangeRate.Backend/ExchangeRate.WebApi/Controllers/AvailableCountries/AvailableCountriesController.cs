@@ -4,6 +4,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ExchangeRate.WebApi.Controllers.AvailableCountries;
 
+/// <summary>
+/// Controller for available countries
+/// </summary>
 public sealed class AvailableCountriesController : BaseController
 {
 

@@ -3,6 +3,10 @@ using ExchangeRate.Domain.Entities;
 
 namespace ExchangeRate.Persistence.CentralBanksApi.Deserializers;
 
+/// <summary>
+/// Base class for xml deserializing central bank api data
+/// </summary>
+/// <typeparam name="TParsingModel"></typeparam>
 public abstract class XmlCentralBankDeserializer<TParsingModel> : CentralBankDeserializer
 {
 

@@ -1,4 +1,5 @@
 ﻿using ExchangeRate.Domain.Entities;
+using ExchangeRate.Domain.Values;
 using ExchangeRate.Persistence.CentralBanksApi.Deserializers;
 using ExchangeRate.Persistence.CentralBanksApi.Russia.Deserializing;
 

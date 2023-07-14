@@ -1,4 +1,5 @@
 ﻿using ExchangeRate.Domain.Entities;
+using ExchangeRate.Domain.Values;
 using ExchangeRate.Persistence.CentralBanksApi.Deserializers;
 using ExchangeRate.Persistence.CentralBanksApi.Thailand.Deserializing;
 
@@ -30,17 +31,22 @@ public sealed class ThailandCentralBankApi : CentralBankApi
 
 	protected override string GetCentralBankApiUrl()
 	{
+		// Thailand central bank api has only one day data. So we need to get data for current day.
 		var currentTime = DateTime.UtcNow;
 		var offsetCurrentTime = currentTime + _gmtOffset;
-
 		var availableDateTime = offsetCurrentTime - _refreshTimeOffset;
+
+		// But if current day is Saturday or Sunday, we need to get data for previous Friday.
 		while (availableDateTime.DayOfWeek is DayOfWeek.Saturday or DayOfWeek.Sunday)
 		{
 			var decreaseDayTimeSpan = TimeSpan.FromDays(1);
 			availableDateTime -= decreaseDayTimeSpan;
 		}
 
+		// Format date to yyyy-MM-dd string
 		var date = availableDateTime.ToString("yyyy-MM-dd");
+
+		// Create url with date
 		var url = $"{Url}?start_period={date}&end_period={date}";
 
 		return url;

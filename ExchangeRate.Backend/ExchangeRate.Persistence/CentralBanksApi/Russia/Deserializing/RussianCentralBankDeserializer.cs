@@ -4,8 +4,14 @@ using ExchangeRate.Persistence.CentralBanksApi.Deserializers;
 
 namespace ExchangeRate.Persistence.CentralBanksApi.Russia.Deserializing;
 
+/// <summary>
+/// Implementation of <see cref="XmlCentralBankDeserializer{TParsingModel}" /> for Russian central bank
+/// </summary>
 public sealed class RussianCentralBankDeserializer : XmlCentralBankDeserializer<ValCurs>
 {
+	/// <summary>
+	/// Format for parsing decimal values
+	/// </summary>
 	private readonly NumberFormatInfo _format = new() {NumberDecimalSeparator = ","};
 
 	protected override async Task<List<Currency>> MapToCurrenciesAsync(ValCurs parsedData,

@@ -2,6 +2,9 @@
 
 namespace ExchangeRate.Persistence.CentralBanksApi.Deserializers;
 
+/// <summary>
+/// Base class for deserializing central bank api data
+/// </summary>
 public abstract class CentralBankDeserializer
 {
 	/// <summary>
@@ -11,9 +14,4 @@ public abstract class CentralBankDeserializer
 	/// <param name="cancellationToken"></param>
 	/// <returns>Deserialized list of currencies</returns>
 	public abstract Task<List<Currency>> DeserializeAsync(string data, CancellationToken cancellationToken);
-
-	protected static dynamic ThrowException(string valueName)
-	{
-		throw new InvalidOperationException($"{valueName} is null");
-	}
 }

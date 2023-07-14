@@ -1,7 +1,7 @@
-﻿namespace ExchangeRate.Domain.Entities;
+﻿namespace ExchangeRate.Domain.Values;
 
 /// <summary>
-/// Available countries in upper case.
+/// Available countries in UPPER CASE.
 /// </summary>
 public static class Countries
 {

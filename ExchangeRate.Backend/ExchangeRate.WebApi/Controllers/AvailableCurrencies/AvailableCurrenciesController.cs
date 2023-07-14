@@ -5,6 +5,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ExchangeRate.WebApi.Controllers.AvailableCurrencies;
 
+/// <summary>
+/// Controller for available currencies
+/// </summary>
 public sealed class AvailableCurrenciesController : BaseController
 {
 

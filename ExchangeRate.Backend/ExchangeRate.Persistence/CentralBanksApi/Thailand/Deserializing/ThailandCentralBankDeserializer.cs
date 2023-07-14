@@ -4,6 +4,9 @@ using ExchangeRate.Persistence.CentralBanksApi.Deserializers;
 
 namespace ExchangeRate.Persistence.CentralBanksApi.Thailand.Deserializing;
 
+/// <summary>
+/// Implementation of <see cref="JsonCentralBankDeserializer{TParsingModel}" /> for Thailand central bank.
+/// </summary>
 public sealed class ThailandCentralBankDeserializer : JsonCentralBankDeserializer<Root>
 {
 	private readonly NumberFormatInfo _format = new() {NumberDecimalSeparator = "."};

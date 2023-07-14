@@ -1,5 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using ExchangeRate.Domain.Entities;
+using ExchangeRate.Domain.Values;
 
 namespace ExchangeRate.WebApi.Controllers.Convert;
 

@@ -1,5 +1,6 @@
 ﻿using ExchangeRate.Application.Interfaces;
 using ExchangeRate.Domain.Entities;
+using ExchangeRate.Domain.Values;
 using ExchangeRate.Persistence.CentralBanksApi;
 using ExchangeRate.Persistence.CentralBanksApi.Russia;
 using ExchangeRate.Persistence.CentralBanksApi.Thailand;
@@ -7,10 +8,15 @@ using ExchangeRate.Persistence.Common.Exceptions;
 
 namespace ExchangeRate.Persistence;
 
+/// <summary>
+/// Central bank repository implementation.
+/// </summary>
 public sealed class CentralBankRepository : ICentralBankRepository
 {
-	// Dictionary of central bank api for each country. 
-	// Add all available api here
+	/// <summary>
+	/// Dictionary of central bank api for each country.
+	/// Add all available api here.
+	/// </summary>
 	private readonly Dictionary<string, CentralBankApi> _centralBankApis = new()
 	{
 		{
@@ -24,7 +30,7 @@ public sealed class CentralBankRepository : ICentralBankRepository
 	};
 
 	#region ICentralBankRepository Members
-	/// <summary>Get all available central banks from all apis</summary>
+	/// <summary>Get all available central banks from all APIs</summary>
 	/// <param name="cancellationToken"></param>
 	/// <returns></returns>
 	public async Task<List<CentralBank>> GetCentralBanksAsync(CancellationToken cancellationToken)

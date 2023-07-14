@@ -97,9 +97,9 @@ public abstract class CentralBankApi
 		// add country currency to currencies for convenience
 		if (currencies.All(x => x.CharCode != GetCountryCurrency().CharCode))
 		{
-		    currencies.Add(GetCountryCurrency());
+			currencies.Add(GetCountryCurrency());
 		}
-		
+
 		// create domain model
 		var centralBank = new CentralBank
 		{

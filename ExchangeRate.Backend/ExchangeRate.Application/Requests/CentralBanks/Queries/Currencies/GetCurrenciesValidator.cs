@@ -2,6 +2,9 @@
 
 namespace ExchangeRate.Application.Requests.CentralBanks.Queries.Currencies;
 
+/// <summary>
+/// Validator for get currencies request
+/// </summary>
 public class GetCurrenciesValidator : AbstractValidator<GetCurrenciesQuery>
 {
 	public GetCurrenciesValidator()

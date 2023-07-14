@@ -7,11 +7,11 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\ExchangeRate.Application\ExchangeRate.Application.csproj" />
+        <ProjectReference Include="..\ExchangeRate.Application\ExchangeRate.Application.csproj"/>
     </ItemGroup>
 
     <ItemGroup>
-        <Folder Include="Common\" />
+        <Folder Include="Common\"/>
     </ItemGroup>
 
 </Project>

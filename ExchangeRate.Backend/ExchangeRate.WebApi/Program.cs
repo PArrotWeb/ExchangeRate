@@ -7,19 +7,22 @@ using ExchangeRate.WebApi.Middleware.CustomExceptionMiddleware;
 using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
-ConfigureServices(builder.Services);
+ConfigureBuild(builder.Services);
 
 var app = builder.Build();
 ConfigureApp();
 app.Run();
 
-void ConfigureServices(IServiceCollection services)
+void ConfigureBuild(IServiceCollection services)
 {
+	// Add layers services to DI 
 	services.AddApplication();
 	services.AddPersistence();
 
+	// Add custom exception handler
 	services.AddEndpointsApiExplorer();
 
+	// Add swagger
 	if (builder.Environment.IsDevelopment())
 	{
 		services.AddSwaggerGen(c =>
@@ -29,6 +32,7 @@ void ConfigureServices(IServiceCollection services)
 		});
 	}
 
+	// Add controllers
 	services.AddControllers();
 
 	// Add mapping
@@ -52,6 +56,7 @@ void ConfigureServices(IServiceCollection services)
 
 void ConfigureApp()
 {
+	// Add swagger
 	if (app.Environment.IsDevelopment())
 	{
 		app.UseDeveloperExceptionPage();
@@ -59,14 +64,9 @@ void ConfigureApp()
 		app.UseSwaggerUI();
 	}
 
+	// Middleware pipeline
 	app.UseCustomExceptionHandler();
-
 	app.UseRouting();
-
-	// app.UseHttpsRedirection();
-
 	app.UseCors("AllowAll");
-
 	app.MapControllers();
-
 }
