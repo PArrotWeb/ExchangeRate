@@ -18,6 +18,7 @@
 - AutoMapper
 - Swagger
 - Postman (Нагрузочное тестирование)
+- Figma
 
 ### Особенности:
 - Clean Architecture, CQRS
