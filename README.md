@@ -5,7 +5,7 @@
 
 ### Использование:
 1. Скачать docker-compose.yml
-2. Запустить в Docker `docker compose up`
+2. Открыть командную строку в папке с docker-compose.yml, ввести команду `docker compose up` ***(Требуется установленный Docker)***
 
 ### Стек технологий:
 - JS, HTML, CSS, SCSS
